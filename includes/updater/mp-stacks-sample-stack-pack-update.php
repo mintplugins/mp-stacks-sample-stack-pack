@@ -21,6 +21,7 @@
  */
  if (!function_exists('mp_stacks_sample_stack_pack_update')){
 	function mp_stacks_sample_stack_pack_update() {
+		
 		$args = array(
 			'software_name' => 'MP Stacks + Sample Stack Pack', //<- The exact name of this Plugin. Make sure it matches the title in your mp_stacks-sample_template, sample_template, and the WP.org stacks-sample_template
 			'software_api_url' => 'http://moveplugins.com',//The URL where Sample Template and mp_stacks-sample_template are installed and checked

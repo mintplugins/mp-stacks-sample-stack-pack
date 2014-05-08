@@ -3,7 +3,7 @@
 Plugin Name: MP Stacks + Sample Stack Pack
 Plugin URI: http://moveplugins.com
 Description: This is a sample Stack Template Plugin
-Version: 1.0.0.0
+Version: 1.0.0.1
 Author: Move Plugins
 Author URI: http://moveplugins.com
 Text Domain: mp_stacks_sample_stack_pack
@@ -102,7 +102,7 @@ function mp_stacks_sample_stack_pack_include_files(){
 	//Check the validity of the license for this plugin (boolean)
 	$plugin_vars = array(
 		'plugin_name' => 'MP Stacks + Sample Stack Pack',
-		'plugin_api_url' => 'https://moveplugins.com/repo/mp-stacks-sample-stack-pack',
+		'plugin_api_url' => 'https://moveplugins.com/',
 	);	
 	
 	$license_key_valid = mp_core_listen_for_license_and_get_validity( $plugin_vars );
@@ -133,13 +133,18 @@ function mp_stacks_sample_stack_pack_include_files(){
 	
 		/**
 		 * Show license form at the top of admin pages
+		 */	
+		new MP_CORE_Show_License_Form_In_Notices( array('plugin_name' => 'MP Stacks + Sample Stack Pack' ) );
+		
+		/**
+		 * Update script - keeps this plugin up to date
 		 */
-		include_once( MP_STACKS_SAMPLE_STACK_PACK_PLUGIN_DIR . 'includes/misc-functions/license-form.php' );
+		require( MP_STACKS_SAMPLE_STACK_PACK_PLUGIN_DIR . 'includes/updater/mp-stacks-sample-stack-pack-update.php' );
 		
 			
 	}
 	//If MP Stacks or Knapstack aren't installed
-	elseif( !function_exists('mp_stacks_textdomain') || !function_exists('mp_knapstack_textdomain') ) {
+	elseif( !function_exists('mp_stacks_textdomain') || !function_exists('mp_knapstack_textdomain') || !function_exists('mp_stacks_embed_tweets_textdomain') || !function_exists('mp_stacks_features_textdomain')) {
 		
 		/**
 		 * Check if mp-stacks in installed
@@ -150,6 +155,21 @@ function mp_stacks_sample_stack_pack_include_files(){
 		 * Check if mp-knapstack in installed
 		 */
 		include_once( MP_STACKS_SAMPLE_STACK_PACK_PLUGIN_DIR . 'includes/plugin-checker/included-plugins/mp-knapstack-check.php' );
+		
+		/**
+		 * Check if mp_stacks_embed_tweets is installed
+		 */
+		require( MP_STACKS_SAMPLE_STACK_PACK_PLUGIN_DIR . '/includes/stack-templates/my-fun-stack/required-add-ons/mp-stacks-embed-tweets-check.php' ); 
+						
+		/**
+		 * Check if mp_stacks_features is installed
+		 */
+		require( MP_STACKS_SAMPLE_STACK_PACK_PLUGIN_DIR . '/includes/stack-templates/my-fun-stack/required-add-ons/mp-stacks-features-check.php' ); 
+		
+		/**
+		 * Update script - keeps this plugin up to date
+		 */
+		require( MP_STACKS_SAMPLE_STACK_PACK_PLUGIN_DIR . 'includes/updater/mp-stacks-sample-stack-pack-update.php' );
 		
 	}
 	/**

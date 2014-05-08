@@ -33,7 +33,7 @@ if (!function_exists('mp_stacks_features_plugin_check')){
 				'plugin_info_link' => 'http://moveplugins.com/plugins/mp-stacks',
 				'plugin_group_install' => true,
 				'plugin_licensed' => true,
-				'plugin_licensed_parent_name' => 'Change me to the name of the Parent Plugin',
+				'plugin_licensed_parent_name' => 'MP Stacks + Sample Stack Pack',
 				'plugin_required' => true,
 				'plugin_wp_repo' => true,
 			)
