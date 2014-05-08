@@ -3,7 +3,7 @@
 Plugin Name: MP Stacks + Sample Stack Pack
 Plugin URI: http://moveplugins.com
 Description: This is a sample Stack Template Plugin
-Version: beta1.0.0.0
+Version: 1.0.0.0
 Author: Move Plugins
 Author URI: http://moveplugins.com
 Text Domain: mp_stacks_sample_stack_pack
